@@ -1,0 +1,20 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<form:form commandName="movie" method="POST" role="form" action="${pageContext.request.contextPath}/movie.htm">
+    <table>
+        <form:hidden path="id"/>
+        <tr>
+            <td><form:input path="name"/>${movie.name}</td>
+            <td><form:errors path="name" /></td>
+        </tr>
+        <tr>
+            <td><form:input path="genre"/>${movie.genre}</td>
+            <td><form:errors path="genre" /></td>
+        </tr>
+        <tr>
+            <td><form:input path="rating"/>${movie.rating}</td>
+            <td><form:errors path="rating" /></td>
+        </tr>
+        </table>
+            <input type="submit" value="Update">
+</form:form>

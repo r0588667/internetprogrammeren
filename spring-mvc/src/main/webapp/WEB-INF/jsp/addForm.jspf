@@ -1,0 +1,25 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page pageEncoding="UTF-8" %>
+
+<form:form commandName="movie" method="POST" role="form" action="${pageContext.request.contextPath}/movie.htm">
+    <table>
+        <tr>
+            <td><form:input path="id"/><c:out value=""/></td>
+            <td><form:errors path="id"/></td>
+        </tr>
+        <tr>
+            <td><form:input path="name"/><c:out value=""/></td>
+            <td><form:errors path="name" /></td>
+        </tr>
+        <tr>
+            <td><form:input path="genre"/><c:out value=""/></td>
+            <td><form:errors path="genre" /></td>
+        </tr>
+        <tr>
+            <td><form:input path="rating"/><c:out value=""/></td>
+            <td><form:errors path="rating" /></td>
+        </tr>
+        </table>
+            <input id="submit" type="submit" value="Save">
+</form:form>
