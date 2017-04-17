@@ -6,7 +6,15 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
-
+    
+<beans:bean id="dataSource"
+                class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <beans:property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
+    <beans:property name="url"  value="jdbc:derby://localhost:1527/movie;create=true"/>
+    <beans:property name="username"  value="app"/>
+    <beans:property name="password"  value="app"/>
+</beans:bean>
+    
     <http auto-config="true" use-expressions="true">
         <form-login
             login-page="/movie/login.htm"
@@ -32,8 +40,7 @@
 	    <user-service>
 		<user name="r0588667" password="Jonlajoie1" authorities="ROLE_USER" />
 	    </user-service>
-	</authentication-provider>
         !-->
+	</authentication-provider>
     </authentication-manager>
-
 </beans:beans>

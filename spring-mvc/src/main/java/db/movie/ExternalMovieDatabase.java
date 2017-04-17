@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import org.eclipse.persistence.exceptions.DatabaseException;
 public class ExternalMovieDatabase implements MovieDatabase {
     private Map<Integer,Movie> movies;
     private EntityManagerFactory entityManagerFactory;
@@ -36,22 +37,28 @@ public class ExternalMovieDatabase implements MovieDatabase {
     }
     @Override
     public void addMovie(Movie movie) {
-        openConnection();
-        entityManager.getTransaction().begin();
-        entityManager.persist(movie);
-        entityManager.getTransaction().commit();
-        closeConnection();
+        try{
+            openConnection();
+            entityManager.getTransaction().begin();
+            entityManager.persist(movie);
+            entityManager.getTransaction().commit();
+            closeConnection();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteMovie(int id) {
         openConnection();
-        Movie result = entityManager.find(Movie.class, id);
         entityManager.getTransaction().begin();
+        Movie result = entityManager.find(Movie.class, id);
         entityManager.remove(result);
         entityManager.flush();
         entityManager.getTransaction().commit();
         closeConnection();
+        Map<Integer,Movie> mov = this.getMovies();
     }
 
     @Override

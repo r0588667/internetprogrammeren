@@ -51,7 +51,8 @@
 			</table>
                         <p> The Average Rating of all Films is : ${avg} </p>
                         <a href="<c:url value='/movie/login.htm?logout'/>">Logout</a>
-                        <a href="${pageContext.request.contextPath}/movie/getTXT.htm">GetTXT</a>
+                        <a href="${pageContext.request.contextPath}/movie/getTXT.htm" download>GetTXT</a>
+                        <a href="${pageContext.request.contextPath}/movie/getCSV.htm" download>GetCSV</a>
 			</article>
 		</main>
 </body>

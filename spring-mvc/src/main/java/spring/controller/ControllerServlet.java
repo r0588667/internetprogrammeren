@@ -89,6 +89,12 @@ public class ControllerServlet {
         File result = Writer.writeToTXT(service.getMovies());
         return new FileSystemResource(result);
     }
+    @RequestMapping(value="/getCSV",method = RequestMethod.GET)
+    @ResponseBody
+    public FileSystemResource getCSV(){
+        File result = Writer.writeToCSV(service.getMovies());
+        return new FileSystemResource(result);
+    }
     /*
     @RequestMapping(value="/login",method = RequestMethod.GET)
     public Object login(
