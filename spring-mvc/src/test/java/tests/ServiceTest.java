@@ -19,7 +19,9 @@ import static org.junit.Assert.*;
  * @author LW
  */
 public class ServiceTest {
-    /*
+    
+}
+/*
     private MovieService service;
     private Movie m = new Movie(07,"Test", "A", 9.0);
     public ServiceTest() {
@@ -81,5 +83,5 @@ public class ServiceTest {
         Movie r = service.getMovie(07);
         assertTrue(r.getGenre().equals("Horror"));
     }
-*/
 }
+*/

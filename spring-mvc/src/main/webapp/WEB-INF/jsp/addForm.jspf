@@ -5,10 +5,6 @@
 <form:form commandName="movie" method="POST" role="form" action="${pageContext.request.contextPath}/movie.htm">
     <table>
         <tr>
-            <td><form:input path="id"/><c:out value=""/></td>
-            <td><form:errors path="id"/></td>
-        </tr>
-        <tr>
             <td><form:input path="name"/><c:out value=""/></td>
             <td><form:errors path="name" /></td>
         </tr>

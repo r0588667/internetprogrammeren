@@ -55,7 +55,6 @@ public class ExternalMovieDatabase implements MovieDatabase {
         entityManager.getTransaction().begin();
         Movie result = entityManager.find(Movie.class, id);
         entityManager.remove(result);
-        entityManager.flush();
         entityManager.getTransaction().commit();
         closeConnection();
         Map<Integer,Movie> mov = this.getMovies();
@@ -75,6 +74,7 @@ public class ExternalMovieDatabase implements MovieDatabase {
     @Override
     public Map<Integer, Movie> getMovies() {
         openConnection();
+        movies = new HashMap<>();
         List<Movie> movielist = entityManager.createQuery("Select c from Movie c", Movie.class).getResultList();
         ListIterator<Movie> ls = movielist.listIterator();
         while(ls.hasNext()){

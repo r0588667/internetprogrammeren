@@ -23,8 +23,8 @@ public class InternalMovieDatabase implements MovieDatabase {
 
     public InternalMovieDatabase(){
         movies = new HashMap<Integer,Movie>();
-        Movie a = new Movie(01,"The Last Crusader","Action", 8.1);
-        Movie b = new Movie(02,"Harry Potter","Adventure", 7.1);
+        Movie a = new Movie("The Last Crusader","Action", 8.1);
+        Movie b = new Movie("Harry Potter","Adventure", 7.1);
         movies.put(a.getId(),a);
         movies.put(b.getId(),b);
 }

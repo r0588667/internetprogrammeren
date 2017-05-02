@@ -5,7 +5,6 @@
  */
 package db.movie;
 
-import db.*;
 import domain.model.Movie;
 import java.util.Map;
 

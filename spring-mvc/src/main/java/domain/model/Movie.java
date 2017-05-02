@@ -20,7 +20,9 @@ public class Movie {
     
     @Id
     @GeneratedValue
-    private int id;
+    private int id = counter;
+    
+    private static int counter = 1;
     @Column
     private String name;
     @Column
@@ -30,13 +32,14 @@ public class Movie {
     private double rating;
     
     public Movie(){
-        
+        counter++;
     }
-    public Movie(int id,String name,String genre,double rating){
-        this.setId(id);
+    public Movie(String name,String genre,double rating){
+        this.setId(counter);
         this.setName(name);
         this.setGenre(genre);
         this.setRating(rating);
+        counter++;
     }
     public int getId(){
         return id;
